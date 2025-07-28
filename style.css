@@ -1,0 +1,25 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc; /* Light blue-gray background */
+}
+/* Custom styles to mimic rounded corners and shadows, if not directly available in Bootstrap classes */
+.card-custom {
+    border-radius: 1rem; /* Equivalent to rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-lg */
+}
+.card-feature {
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Equivalent to shadow-sm */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+.card-feature:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to hover:shadow-md */
+}
+/* Added style to make the specific h2 elements display inline-block */
+.inline-h2 {
+    display: inline-block;
+    margin: 0; /* Remove default margin that might cause spacing issues */
+    padding: 0; /* Remove default padding */
+}
