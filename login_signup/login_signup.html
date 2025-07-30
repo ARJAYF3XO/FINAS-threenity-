@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - login &amp; signup form</title>
+  <link rel="stylesheet" href="style_login_signup.css">
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login">Login Form</div>
+            <div class="title signup">Signup Form</div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">Signup</label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+                <!-- Added novalidate to prevent default browser validation -->
+                <form action="#" class="login" novalidate>
+                    <div class="field">
+                        <!-- Added id for easier JS access -->
+                        <input type="text" placeholder="Email Address" id="loginEmail" required>
+                    </div>
+                    <div class="field">
+                        <!-- Added id for easier JS access -->
+                        <input type="password" placeholder="Password" id="loginPassword" required>
+                    </div>
+                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+                </form>
+                <!-- Added novalidate to prevent default browser validation -->
+                <form action="#" class="signup" novalidate>
+                    <div class="field">
+                        <!-- Added id for easier JS access -->
+                        <input type="text" placeholder="Email Address" id="signupEmail" required>
+                    </div>
+                    <div class="field">
+                        <!-- Added id for easier JS access -->
+                        <input type="password" placeholder="Password" id="signupPassword" required>
+                    </div>
+                    <div class="field">
+                        <!-- Added id for easier JS access -->
+                        <input type="password" placeholder="Confirm password" id="signupConfirmPassword" required>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  <script  src="script_login_signup.js"></script>
+
+</body>
+</html>
