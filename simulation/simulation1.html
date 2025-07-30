@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage Template</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- external na css -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header and Navigation Bar -->
+    <header class="bg-white shadow-sm py-3">
+        <nav class="navbar navbar-expand-md navbar-light bg-white container">
+            <!-- Logo/Site Title -->
+            <a class="navbar-brand fs-4 fw-bold text-dark rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">
+                FINas
+            </a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container py-5">
+        <div class="card card-custom p-4">
+            <!-- Modified h2 elements to display inline -->
+            <div style="text-align: center;">
+                <h2 class="inline-h2" style="color: red;">1</h2>
+                <h2 class="inline-h2">--------- 2 --------- 3</h2>
+            </div>
+            <br>
+            <br>
+            <h2 class="mb-4 text-center">Personal Information Form</h2>
+            <form id="personalInfoForm" action="simulation2.html" method="POST">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sex" class="form-label">Sex</label>
+                        <select class="form-select" id="sex" name="sex" required>
+                            <option value="" disabled selected>Select your sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="country" name="country" placeholder="Enter your country" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="occupancy" class="form-label">Occupancy</label>
+                        <input type="text" class="form-control" id="occupancy" name="occupancy" placeholder="e.g., Student, Professional" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="position" name="position" placeholder="e.g., Software Engineer, Marketing Manager" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="religion" class="form-label">Religion (Optional)</label>
+                        <input type="text" class="form-control" id="religion" name="religion" placeholder="Enter your religion (optional)">
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h3 class="mb-3">Education</h3>
+                <div class="row g-3 align-items-end mb-3">
+                    <div class="col-md-4">
+                        <label for="educationDegree" class="form-label">Degree</label>
+                        <input type="text" class="form-control" id="educationDegree" placeholder="e.g., Bachelor of Science">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="educationCollege" class="form-label">College/University</label>
+                        <input type="text" class="form-control" id="educationCollege" placeholder="e.g., University of California, Berkeley">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="educationYear" class="form-label">Year</label>
+                        <input type="number" class="form-control" id="educationYear" placeholder="e.g., 2020" min="1900" max="2100">
+                    </div>
+                    <div class="col-md-1 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary w-100" id="addEducationBtn">
+                            <i class="bi bi-plus-lg"></i> Add
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="mb-3">Entered Education</h4>
+                    <ul class="list-group" id="educationList">
+                        <!-- Education entries will be added here -->
+                    </ul>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-lg">Save and Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2025 MySite. All rights reserved.</p>
+            <div class="d-flex justify-content-center mt-2">
+                <a href="#" class="text-muted text-decoration-none mx-2">Privacy Policy</a>
+                <a href="#" class="text-muted text-decoration-none mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS CDN (Popper.js and Bootstrap JS Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addEducationBtn = document.getElementById('addEducationBtn');
+            const educationList = document.getElementById('educationList');
+            const educationDegreeInput = document.getElementById('educationDegree');
+            const educationCollegeInput = document.getElementById('educationCollege');
+            const educationYearInput = document.getElementById('educationYear');
+            const personalInfoForm = document.getElementById('personalInfoForm');
+
+            let educationEntries = []; // Array to store education data
+            let editingIndex = -1; // -1 means no item is being edited, otherwise it's the index of the item
+
+            // Function to clear education input fields
+            function clearEducationInputs() {
+                educationDegreeInput.value = '';
+                educationCollegeInput.value = '';
+                educationYearInput.value = '';
+            }
+
+            // Function to reset the Add/Update button
+            function resetButtonToAdd() {
+                addEducationBtn.innerHTML = '<i class="bi bi-plus-lg"></i> Add';
+                addEducationBtn.classList.remove('btn-warning');
+                addEducationBtn.classList.add('btn-primary');
+                editingIndex = -1; // Reset editing state
+            }
+
+            // Function to render education entries
+            function renderEducationList() {
+                educationList.innerHTML = ''; // Clear current list
+                educationEntries.forEach((entry, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center card-feature mb-2';
+                    // For form submission, we need hidden inputs to send dynamic data
+                    // These will be named education[index][degree], education[index][college], education[index][year]
+                    listItem.innerHTML = `
+                        <div>
+                            <strong>${entry.degree}</strong> from ${entry.college} (${entry.year})
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-sm btn-info text-white me-2 edit-btn" data-index="${index}">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </button>
+                            <button type="button" class="btn btn-sm btn-danger delete-btn" data-index="${index}">
+                                <i class="bi bi-trash"></i> Trash
+                            </button>
+                        </div>
+                        <input type="hidden" name="education[${index}][degree]" value="${entry.degree}">
+                        <input type="hidden" name="education[${index}][college]" value="${entry.college}">
+                        <input type="hidden" name="education[${index}][year]" value="${entry.year}">
+                    `;
+                    educationList.appendChild(listItem);
+                });
+            }
+
+            // Add/Update education entry
+            addEducationBtn.addEventListener('click', function () {
+                const degree = educationDegreeInput.value.trim();
+                const college = educationCollegeInput.value.trim();
+                const year = educationYearInput.value.trim();
+
+                if (degree && college && year) {
+                    if (editingIndex === -1) {
+                        // Add new entry
+                        educationEntries.push({ degree, college, year });
+                    } else {
+                        // Update existing entry
+                        educationEntries[editingIndex] = { degree, college, year };
+                        resetButtonToAdd(); // Reset button after update
+                    }
+                    renderEducationList();
+                    clearEducationInputs();
+                } else {
+                    alert('Please fill in all education fields (Degree, College, Year) before adding or updating.');
+                }
+            });
+
+            // Handle edit and delete actions
+            educationList.addEventListener('click', function (event) {
+                // Check if the clicked element or its parent is a delete button
+                if (event.target.classList.contains('delete-btn') || event.target.closest('.delete-btn')) {
+                    const button = event.target.classList.contains('delete-btn') ? event.target : event.target.closest('.delete-btn');
+                    const index = parseInt(button.dataset.index);
+                    if (confirm('Are you sure you want to delete this education entry?')) {
+                        educationEntries.splice(index, 1);
+                        renderEducationList();
+                        if (editingIndex === index) { // If the deleted item was being edited
+                            resetButtonToAdd();
+                            clearEducationInputs();
+                        } else if (editingIndex > index) { // Adjust editingIndex if items before it are deleted
+                            editingIndex--;
+                        }
+                    }
+                }
+                // Check if the clicked element or its parent is an edit button
+                else if (event.target.classList.contains('edit-btn') || event.target.closest('.edit-btn')) {
+                    const button = event.target.classList.contains('edit-btn') ? event.target : event.target.closest('.edit-btn');
+                    const index = parseInt(button.dataset.index);
+
+                    // Set the editing state
+                    editingIndex = index;
+
+                    const entryToEdit = educationEntries[index];
+
+                    // Populate form fields for editing
+                    educationDegreeInput.value = entryToEdit.degree;
+                    educationCollegeInput.value = entryToEdit.college;
+                    educationYearInput.value = entryToEdit.year;
+
+                    // Change button to "Update" mode
+                    addEducationBtn.innerHTML = '<i class="bi bi-arrow-clockwise"></i> Update';
+                    addEducationBtn.classList.remove('btn-primary');
+                    addEducationBtn.classList.add('btn-warning');
+
+                    // Scroll to the education input fields for better UX
+                    educationDegreeInput.focus();
+                }
+            });
+
+            // The form submission will now trigger a page redirect to simulation2.html
+            // The JavaScript event listener for submit is no longer preventing default,
+            // so the browser's native form submission will handle the redirection.
+            // The data will be sent as URL-encoded form data (application/x-www-form-urlencoded).
+            // For complex data like the education array, a server-side script on simulation2.html
+            // would be needed to parse it correctly.
+            // If you need to send JSON data, you would need to prevent default and use fetch API.
+
+            // Note: The alert for "Form submitted successfully!" is removed as the page will redirect.
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI FINas: Financial Simulation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="bg-white shadow-sm py-3">
+        <nav class="navbar navbar-expand-md navbar-light bg-white container">
+            <a class="navbar-brand fs-4 fw-bold text-dark rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">
+                FINas
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-text-primary fw-medium rounded-3 px-3 py-2 hover-bg-light transition-colors" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="flex-grow-1">
+        <div class="container py-5">
+            <div class="card card-custom p-4">
+                <div class="text-center">
+                    <h2 class="inline-h2">1--------- </h2>
+                <h2 class="inline-h2" style="color: red;">2</h2>
+                <h2 class="inline-h2"> --------- 3</h2>
+                <br>
+                <br>
+                <h2 class="mb-4 text-center">Financial Simulation</h2>
+                <p class="text-center text-muted mb-4">Input your financial details and proposed decisions to simulate potential outcomes.</p>
+
+                <form id="simulationForm" action="#" method="POST">
+                    <div class="mb-4 p-4 bg-light rounded shadow-sm">
+                        <h3 class="h5 mb-3 border-bottom pb-2">1. Choose Your Simulation Scenario</h3>
+                        <div class="mb-3">
+                            <label for="scenarioSelect" class="form-label">Select a common scenario to get started:</label>
+                            <select id="scenarioSelect" name="scenarioSelect" class="form-select">
+                                <option value="">-- Select a Scenario --</option>
+                                <option value="downPayment">Saving for a Down Payment on a House</option>
+                                <option value="earlyRetirement">Early Retirement Planning</option>
+                                <option value="debtRepayment">Accelerated Debt Repayment (e.g., Credit Card/Loan)</option>
+                                <option value="majorInvestment">Evaluating a Major Investment (e.g., Starting a Business)</option>
+                                <option value="childEducation">Funding a Child's Education</option>
+                                <option value="carLoan">Comparing Loan Options for a Car Purchase</option>
+                                <option value="salaryIncrease">Assessing the Impact of a Salary Increase</option>
+                                <option value="lifeEvent">Planning for a Major Life Event (e.g., Wedding/Travel)</option>
+                                <option value="inflationImpact">Understanding the Effects of Inflation on Savings</option>
+                                <option value="budgetOptimization">Optimizing Budgeting for Financial Stability</option>
+                                <option value="custom">Custom Scenario (Show All Options)</option>
+                            </select>
+                        </div>
+                    </div> <div id="goalSection" class="mb-4 p-4 bg-light rounded shadow-sm scenario-specific-section">
+                        <h3 class="h5 mb-3 border-bottom pb-2">2. Your Financial Goal(s)</h3>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="goalName" class="form-label">Goal Name</label>
+                                <input type="text" id="goalName" name="goalName" placeholder="e.g., Buy a house, Retire early, Pay off debt" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="goalAmount" class="form-label">Target Amount (₱)</label>
+                                <input type="number" id="goalAmount" name="goalAmount" min="0" step="any" placeholder="e.g., 5,000,000" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="goalDate" class="form-label">Target Completion Date</label>
+                                <input type="date" id="goalDate" name="goalDate" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="goalPriority" class="form-label">Goal Priority</label>
+                                <select id="goalPriority" name="goalPriority" class="form-select">
+                                    <option value="">Select Priority</option>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="goalDescription" class="form-label">Goal Description (Optional)</label>
+                                <textarea id="goalDescription" name="goalDescription" rows="3" placeholder="Briefly describe your financial goal and what it means to you." class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="decisionSection" class="mb-4 p-4 bg-light rounded shadow-sm scenario-specific-section">
+                        <h3 class="h5 mb-3 border-bottom pb-2">3. Proposed Financial Decision(s) for Simulation</h3>
+                        <p class="text-muted mb-4">What financial decision are you considering?</p>
+
+                        <div id="investmentSection" class="mb-4 p-4 border border-info rounded bg-white scenario-specific-section">
+                            <h4 class="h6 mb-3 text-info">Investment</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="investmentAmount" class="form-label">Amount to Invest (₱)</label>
+                                    <input type="number" id="investmentAmount" name="investmentAmount" min="0" step="any" placeholder="e.g., 100,000" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="investmentType" class="form-label">Investment Type</label>
+                                    <select id="investmentType" name="investmentType" class="form-select">
+                                        <option value="">Select Type</option>
+                                        <option value="stocks">Stocks</option>
+                                        <option value="bonds">Bonds</option>
+                                        <option value="mutualFunds">Mutual Funds</option>
+                                        <option value="realEstate">Real Estate</option>
+                                        <option value="business">Business Venture</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="investmentDuration" class="form-label">Investment Duration (Years)</label>
+                                    <input type="number" id="investmentDuration" name="investmentDuration" min="1" placeholder="e.g., 5" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="expectedReturn" class="form-label">Expected Annual Return (%)</label>
+                                    <input type="number" id="expectedReturn" name="expectedReturn" min="0" step="0.01" placeholder="e.g., 8.5" class="form-control">
+                                </div>
+                                <div class="col-12">
+                                    <label for="riskTolerance" class="form-label">Your Risk Tolerance (1=Low, 5=High): <span id="riskToleranceValue" class="fw-bold text-primary">3</span></label>
+                                    <input type="range" class="form-range-custom" id="riskTolerance" name="riskTolerance" min="1" max="5" step="1" value="3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="loanDebtSection" class="mb-4 p-4 border border-warning rounded bg-white scenario-specific-section">
+                            <h4 class="h6 mb-3 text-warning">Loan/Debt Management</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="loanAmount" class="form-label">Loan Amount / Debt Balance (₱)</label>
+                                    <input type="number" id="loanAmount" name="loanAmount" min="0" step="any" placeholder="e.g., 1,500,000" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="loanType" class="form-label">Loan/Debt Type</label>
+                                    <select id="loanType" name="loanType" class="form-select">
+                                        <option value="">Select Type</option>
+                                        <option value="housing">Housing Loan</option>
+                                        <option value="car">Car Loan</option>
+                                        <option value="personal">Personal Loan</option>
+                                        <option value="creditCard">Credit Card Debt</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="interestRate" class="form-label">Interest Rate (%)</label>
+                                    <input type="number" id="interestRate" name="interestRate" min="0" step="0.01" placeholder="e.g., 6.25" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="loanTerm" class="form-label">Loan Term (Years)</label>
+                                    <input type="number" id="loanTerm" name="loanTerm" min="1" placeholder="e.g., 15" class="form-control">
+                                </div>
+                                <div class="col-12">
+                                    <label for="extraPayment" class="form-label">Optional: Extra Monthly Payment (₱)</label>
+                                    <input type="number" id="extraPayment" name="extraPayment" min="0" step="any" placeholder="e.g., 5,000" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="majorPurchaseSection" class="p-4 border border-success rounded bg-white scenario-specific-section">
+                            <h4 class="h6 mb-3 text-success">Major Purchase</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="purchaseItem" class="form-label">Item to Purchase</label>
+                                    <input type="text" id="purchaseItem" name="purchaseItem" placeholder="e.g., New car, Home renovation" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="purchaseCost" class="form-label">Estimated Cost (₱)</label>
+                                    <input type="number" id="purchaseCost" name="purchaseCost" min="0" step="any" placeholder="e.g., 800,000" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fundingSource" class="form-label">Funding Source</label>
+                                    <select id="fundingSource" name="fundingSource" class="form-select">
+                                        <option value="">Select Source</option>
+                                        <option value="savings">Savings</option>
+                                        <option value="loan">Loan</option>
+                                        <option value="combination">Combination</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="downPayment" class="form-label">If Loan: Down Payment (₱)</label>
+                                    <input type="number" id="downPayment" name="downPayment" min="0" step="any" placeholder="e.g., 160,000" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="assumptionsSection" class="mb-4 p-4 bg-light rounded shadow-sm scenario-specific-section">
+                        <h3 class="h5 mb-3 border-bottom pb-2">4. Scenario Specific Assumptions</h3>
+                        <p class="text-muted mb-4">Adjust these assumptions to see different outcomes.</p>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="inflationRateAssumption" class="form-label">Assumed Annual Inflation Rate (%)</label>
+                                <input type="number" id="inflationRateAssumption" name="inflationRateAssumption" min="0" step="0.01" value="3.5" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="incomeGrowthAssumption" class="form-label">Assumed Annual Income Growth (%)</label>
+                                <input type="number" id="incomeGrowthAssumption" name="incomeGrowthAssumption" min="0" step="0.01" value="2.0" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="expenseGrowthAssumption" class="form-label">Assumed Annual Expense Growth (%)</label>
+                                <input type="number" id="expenseGrowthAssumption" name="expenseGrowthAssumption" min="0" step="0.01" value="1.5" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="profileSection" class="mb-4 p-4 bg-light rounded shadow-sm scenario-specific-section">
+                        <h3 class="h5 mb-3 border-bottom pb-2">5. Your Profile & Preferences</h3>
+                        <div class="mb-3">
+                            <label for="financialLiteracy" class="form-label">Your Financial Literacy Level</label>
+                            <select id="financialLiteracy" name="financialLiteracy" class="form-select">
+                                <option value="beginner">Beginner (Avoid jargon)</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced (Use financial terms)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="financialConcerns" class="form-label">Main Financial Concerns/Anxieties (Optional)</label>
+                            <textarea id="financialConcerns" name="financialConcerns" rows="3" placeholder="e.g., Worried about retirement, Struggling with credit card debt" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 p-4 bg-light rounded shadow-sm">
+                        <h3 class="h5 mb-3 border-bottom pb-2">6. Consent & Disclaimers</h3>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="dataConsent" name="dataConsent" required>
+                            <label class="form-check-label" for="dataConsent">I understand and consent to the use of my provided data for financial simulation purposes, adhering to BPI's privacy policy and the Data Privacy Act of 2012.</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="disclaimerAck" name="disclaimerAck" required>
+                            <label class="form-check-label" for="disclaimerAck">I understand that AI FINas provides simulations and general information, and is not a substitute for professional financial advice. Major decisions should be discussed with a certified financial advisor.</label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">Run Simulation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2025 MySite. All rights reserved.</p>
+            <div class="d-flex justify-content-center mt-2">
+                <a href="#" class="text-muted text-decoration-none mx-2">Privacy Policy</a>
+                <a href="#" class="text-muted text-decoration-none mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scenarioSelect = document.getElementById('scenarioSelect');
+            const goalSection = document.getElementById('goalSection');
+            const decisionSection = document.getElementById('decisionSection');
+            const investmentSection = document.getElementById('investmentSection');
+            const loanDebtSection = document.getElementById('loanDebtSection');
+            const majorPurchaseSection = document.getElementById('majorPurchaseSection');
+            const assumptionsSection = document.getElementById('assumptionsSection');
+            const profileSection = document.getElementById('profileSection');
+
+            // Risk Tolerance slider elements
+            const riskToleranceSlider = document.getElementById('riskTolerance');
+            const riskToleranceValueSpan = document.getElementById('riskToleranceValue');
+
+            // Update risk tolerance value display
+            if (riskToleranceSlider && riskToleranceValueSpan) {
+                riskToleranceValueSpan.textContent = riskToleranceSlider.value; // Set initial value
+                riskToleranceSlider.addEventListener('input', function() {
+                    riskToleranceValueSpan.textContent = this.value;
+                });
+            }
+
+            // Get all input fields to clear them
+            const allInputs = document.querySelectorAll('#simulationForm input, #simulationForm select, #simulationForm textarea');
+
+            // Function to hide all scenario-specific sections and clear inputs
+            function hideAllScenarioSections() {
+                document.querySelectorAll('.scenario-specific-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                // Clear all input values when a new scenario is selected
+                allInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        input.checked = false;
+                    } else if (input.tagName === 'SELECT') {
+                        input.value = '';
+                    } else if (input.type === 'range') { // Reset slider to default
+                        input.value = '3';
+                        if (input.id === 'riskTolerance') {
+                            document.getElementById('riskToleranceValue').textContent = '3';
+                        }
+                    }
+                    else if (input.type !== 'submit') { // Don't clear submit button
+                        input.value = '';
+                    }
+                });
+                // Reset default assumption values
+                document.getElementById('inflationRateAssumption').value = '3.5';
+                document.getElementById('incomeGrowthAssumption').value = '2.0';
+                document.getElementById('expenseGrowthAssumption').value = '1.5';
+            }
+
+            // Function to show relevant sections and pre-fill some values
+            function showScenarioSections(scenario) {
+                hideAllScenarioSections(); // Always hide all first
+
+                // Always show Profile & Preferences and Assumptions (as they are generally relevant)
+                profileSection.style.display = 'block';
+                assumptionsSection.style.display = 'block';
+
+                switch (scenario) {
+                    case 'downPayment':
+                        goalSection.style.display = 'block';
+                        decisionSection.style.display = 'block';
+                        investmentSection.style.display = 'block'; // Savings can be seen as an investment
+                        document.getElementById('goalName').value = 'House Down Payment';
+                        document.getElementById('goalAmount').placeholder = 'e.g., 1,000,000 (20% of ₱5M house)';
+                        document.getElementById('investmentType').value = 'savings'; // Default to savings for this
+                        document.getElementById('investmentAmount').placeholder = 'e.g., 10,000 (monthly savings)';
+                        document.getElementById('investmentDuration').placeholder = 'e.g., 3 (years to save)';
+                        document.getElementById('expectedReturn').value = '0.5'; // Low return for savings
+                        riskToleranceSlider.value = '1'; // Low risk for savings
+                        riskToleranceValueSpan.textContent = riskToleranceSlider.value;
+                        break;
+                    case 'earlyRetirement':
+                        goalSection.style.display = 'block';
+                        decisionSection.style.display = 'block';
+                        investmentSection.style.display = 'block';
+                        document.getElementById('goalName').value = 'Early Retirement';
+                        document.getElementById('goalAmount').placeholder = 'e.g., 20,000,000';
+                        document.getElementById('goalDate').placeholder = 'e.g., 2045-12-31';
+                        document.getElementById('investmentAmount').placeholder = 'e.g., 15,000 (monthly contribution)';
+                        document.getElementById('investmentDuration').placeholder = 'e.g., 20 (years until retirement)';
+                        document.getElementById('expectedReturn').value = '7.0'; // Typical for diversified investments
+                        riskToleranceSlider.value = '4';
+                        riskToleranceValueSpan.textContent = riskToleranceSlider.value;
+                        break;
+                    case 'debtRepayment':
+                        decisionSection.style.display = 'block';
+                        loanDebtSection.style.display = 'block';
+                        document.getElementById('loanAmount').placeholder = 'e.g., 50,000 (credit card balance)';
+                        document.getElementById('loanType').value = 'creditCard';
+                        document.getElementById('interestRate').placeholder = 'e.g., 2.5 (monthly credit card interest)';
+                        document.getElementById('loanTerm').placeholder = 'e.g., 1 (years to pay off)';
+                        document.getElementById('extraPayment').placeholder = 'e.g., 2,000 (extra monthly payment)';
+                        break;
+                    case 'majorInvestment':
+                        decisionSection.style.display = 'block';
+                        investmentSection.style.display = 'block';
+                        document.getElementById('investmentType').value = 'business';
+                        document.getElementById('investmentAmount').placeholder = 'e.g., 500,000 (startup capital)';
+                        document.getElementById('investmentDuration').placeholder = 'e.g., 5';
+                        document.getElementById('expectedReturn').placeholder = 'e.g., 15.0';
+                        riskToleranceSlider.value = '5';
+                        riskToleranceValueSpan.textContent = riskToleranceSlider.value;
+                        break;
+                    case 'childEducation':
+                        goalSection.style.display = 'block';
+                        decisionSection.style.display = 'block';
+                        investmentSection.style.display = 'block';
+                        document.getElementById('goalName').value = "Child's Education Fund";
+                        document.getElementById('goalAmount').placeholder = 'e.g., 1,000,000 (for college)';
+                        document.getElementById('goalDate').placeholder = 'e.g., 2040-06-01';
+                        document.getElementById('investmentType').value = 'mutualFunds';
+                        document.getElementById('investmentAmount').placeholder = 'e.g., 3,000 (monthly contribution)';
+                        document.getElementById('investmentDuration').placeholder = 'e.g., 10 (years until college)';
+                        document.getElementById('expectedReturn').value = '6.0';
+                        riskToleranceSlider.value = '3';
+                        riskToleranceValueSpan.textContent = riskToleranceSlider.value;
+                        break;
+                    case 'carLoan':
+                        decisionSection.style.display = 'block';
+                        loanDebtSection.style.display = 'block';
+                        majorPurchaseSection.style.display = 'block';
+                        document.getElementById('purchaseItem').value = 'New Car';
+                        document.getElementById('purchaseCost').placeholder = 'e.g., 800,000';
+                        document.getElementById('fundingSource').value = 'loan';
+                        document.getElementById('downPayment').placeholder = 'e.g., 160,000 (20% down)';
+                        document.getElementById('loanAmount').placeholder = 'e.g., 640,000 (car cost - down payment)';
+                        document.getElementById('loanType').value = 'car';
+                        document.getElementById('interestRate').placeholder = 'e.g., 10.0';
+                        document.getElementById('loanTerm').placeholder = 'e.g., 5';
+                        break;
+                    case 'salaryIncrease':
+                        profileSection.style.display = 'block'; // Focus on income
+                        assumptionsSection.style.display = 'block'; // Income growth assumption
+                        document.getElementById('incomeGrowthAssumption').value = '5.0'; // Example: 5% increase
+                        document.getElementById('financialConcerns').placeholder = 'How would a salary increase impact your financial situation?';
+                        break;
+                    case 'lifeEvent':
+                        goalSection.style.display = 'block';
+                        document.getElementById('goalName').placeholder = 'e.g., Dream Wedding, European Trip';
+                        document.getElementById('goalAmount').placeholder = 'e.g., 500,000';
+                        document.getElementById('goalDate').placeholder = 'e.g., 2027-08-15';
+                        break;
+                    case 'inflationImpact':
+                        assumptionsSection.style.display = 'block';
+                        document.getElementById('inflationRateAssumption').value = '6.0'; // Higher inflation for impact
+                        profileSection.style.display = 'block'; // Current savings is important here
+                        document.getElementById('financialConcerns').placeholder = 'How might inflation affect your savings and purchasing power over time?';
+                        break;
+                    case 'budgetOptimization':
+                        profileSection.style.display = 'block'; // Focus on income/expenses
+                        document.getElementById('financialConcerns').placeholder = 'What areas of your budget do you want to optimize?';
+                        break;
+                    case 'custom':
+                        // Show all relevant sections for a custom scenario
+                        goalSection.style.display = 'block';
+                        decisionSection.style.display = 'block';
+                        investmentSection.style.display = 'block';
+                        loanDebtSection.style.display = 'block';
+                        majorPurchaseSection.style.display = 'block';
+                        assumptionsSection.style.display = 'block';
+                        profileSection.style.display = 'block';
+                        break;
+                    default:
+                        // No scenario selected, hide everything except the scenario selector
+                        break;
+                }
+            }
+
+            // Event listener for scenario selection
+            scenarioSelect.addEventListener('change', function() {
+                showScenarioSections(this.value);
+            });
+
+            // Initial state: hide all scenario-specific sections when the page loads
+            hideAllScenarioSections();
+        });
+    </script>
+</body>
+</html>
