@@ -35,57 +35,6 @@
             return false; // Prevent default link behavior
         };
 
-        // --- Form Submission and Validation ---
-
-        // Login Form Submission
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            const email = loginEmailInput.value.trim();
-            const password = loginPasswordInput.value.trim();
-
-            if (!email || !password) {
-                alert("Please fill in all fields for login.");
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                alert("Please enter a valid email address for login.");
-                return;
-            }
-
-            // If validation passes, redirect
-            window.location.href = "../index.html";
-        });
 
         // Signup Form Submission
-        document.querySelector("form.signup").addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            const email = signupEmailInput.value.trim();
-            const password = signupPasswordInput.value.trim();
-            const confirmPassword = signupConfirmPasswordInput.value.trim();
-
-            if (!email || !password || !confirmPassword) {
-                alert("Please fill in all fields for signup.");
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                alert("Please enter a valid email address for signup.");
-                return;
-            }
-
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long.");
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                alert("Passwords do not match.");
-                return;
-            }
-
-            // If validation passes, redirect
-            window.location.href = "../index.html";
-        });
+       
